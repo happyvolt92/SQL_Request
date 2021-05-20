@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>SQL REQUEST</title>
+  </head>
+  <body class="body_bis">
+    <header class="header">
+      <a href="./index2.html" class="logo"
+        ><img class="logo_header" src="./images_icones/logo_mysql.svg"
+      /></a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"
+        ><span class="navicon"></span
+      ></label>
+      <ul class="menu">
+        <li><a href="#select">Les requêtes SELECT</a></li>
+        <li><a href="#where">Les requêtes WHERE</a></li>
+        <li><a href="#groupby">Les requêtes GROUP BY</a></li>
+        <li><a href="#orderby">Les requêtes ORDER BY</a></li>
+        <li><a href="#limit">Les requêtes LIMIT</a></li>
+        <li><a href="#jointures">Les requêtes de jointures</a></li>
+      </ul>
+    </header>
+    <div class="white_block">
+      <p class="p_2"></p>
+      <h2 id="select">Les requêtes SQL SELECT</h2>
+      <p>
+        L’utilisation la plus courante de SQL consiste à lire des données issues
+        de la base de données. Cela s’effectue grâce à la commande SELECT, qui
+        retourne des enregistrements dans un tableau de résultat. Cette commande
+        peut sélectionner une ou plusieurs colonnes d’une table. Commande
+        basique L’utilisation basique de cette commande s’effectue de la manière
+        suivante: SELECT nom_du_champ FROM nom_du_tableau Cette requête SQL va
+        sélectionner (SELECT) le champ “nom_du_champ” provenant (FROM) du
+        tableau appelé “nom_du_tableau”.
+      </p>
+      <h2>Exemple</h2>
+      <p>
+        Imaginons une base de données appelée “client” qui contient des
+        informations sur les clients d’une entreprise. Table “client” :
+      </p>
+      <table id="tableau">
+        <thead>
+          <tr class="row-1">
+            <th class="column-1">identifiant</th>
+            <th class="column-2">prenom</th>
+            <th class="column-3">nom</th>
+            <th class="column-4">ville</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-2">
+            <td class="column-1">1</td>
+            <td class="column-2">Pierre</td>
+            <td class="column-3">Dupond</td>
+            <td class="column-4">Paris</td>
+          </tr>
+          <tr class="row-3">
+            <td class="column-1">2</td>
+            <td class="column-2">Sabrina</td>
+            <td class="column-3">Durand</td>
+            <td class="column-4">Nantes</td>
+          </tr>
+          <tr class="row-4">
+            <td class="column-1">3</td>
+            <td class="column-2">Julien</td>
+            <td class="column-3">Martin</td>
+            <td class="column-4">Lyon</td>
+          </tr>
+          <tr class="row-5">
+            <td class="column-1">4</td>
+            <td class="column-2">David</td>
+            <td class="column-3">Bernard</td>
+            <td class="column-4">Marseille</td>
+          </tr>
+          <tr class="row-6">
+            <td class="column-1">5</td>
+            <td class="column-2">Marie</td>
+            <td class="column-3">Leroy</td>
+            <td class="column-4">Grenoble</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Si l’ont veut avoir la liste de toutes les villes des clients, il suffit
+        d’effectuer la requête SQL ci-dessous : SELECT ville FROM client De
+        cette manière on obtient le résultat suivant :
+      </p>
+      <table id="tableau2">
+        <thead>
+          <tr class="row-1">
+            <th class="column-1">ville</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="row-2">
+            <td class="column-1">Paris</td>
+          </tr>
+          <tr class="row-3">
+            <td class="column-1">Nantes</td>
+          </tr>
+          <tr class="row-4">
+            <td class="column-1">Lyon</td>
+          </tr>
+          <tr class="row-5">
+            <td class="column-1">Marseille</td>
+          </tr>
+          <tr class="row-6">
+            <td class="column-1">Grenoble</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Obtenir plusieurs colonnes</h2>
+      <p>
+        Avec la même table client il est possible de lire plusieurs colonnes à
+        la fois. Il suffit tout simplement de séparer les noms des champs
+        souhaités par une virgule. Pour obtenir les prénoms et les noms des
+        clients il faut alors faire la requête suivante: SELECT prenom, nom FROM
+        client Ce qui retourne ce résultat:
+      </p>
+      <table id="tableau3">
+        <thead>
+          <tr class="row-1">
+            <th class="column-1">prenom</th>
+            <th class="column-2">nom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-2">
+            <td class="column-1">Pierre</td>
+            <td class="column-2">Dupond</td>
+          </tr>
+          <tr class="row-3">
+            <td class="column-1">Sabrina</td>
+            <td class="column-2">Durand</td>
+          </tr>
+          <tr class="row-4">
+            <td class="column-1">Julien</td>
+            <td class="column-2">Martin</td>
+          </tr>
+          <tr class="row-5">
+            <td class="column-1">David</td>
+            <td class="column-2">Bernard</td>
+          </tr>
+          <tr class="row-6">
+            <td class="column-1">Marie</td>
+            <td class="column-2">Leroy</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Obtenir toutes les colonnes d’un tableau</h2>
+      <p>
+        Il est possible de retourner automatiquement toutes les colonnes d’un
+        tableau sans avoir à connaître le nom de toutes les colonnes. Au lieu de
+        lister toutes les colonnes, il faut simplement utiliser le caractère “*”
+        (étoile). C’est un joker qui permet de sélectionner toutes les colonnes.
+        Il s’utilise de la manière suivante: SELECT * FROM client Cette requête
+        SQL retourne exactement les mêmes colonnes qu’il y a dans la base de
+        données. Dans notre cas, le résultat sera donc:
+      </p>
+      <table id="tableau3">
+        <thead>
+          <tr class="row-1">
+            <th class="column-1">identifiant</th>
+            <th class="column-2">prenom</th>
+            <th class="column-3">nom</th>
+            <th class="column-4">ville</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-2">
+            <td class="column-1">1</td>
+            <td class="column-2">Pierre</td>
+            <td class="column-3">Dupond</td>
+            <td class="column-4">Paris</td>
+          </tr>
+          <tr class="row-3">
+            <td class="column-1">2</td>
+            <td class="column-2">Sabrina</td>
+            <td class="column-3">Durand</td>
+            <td class="column-4">Nantes</td>
+          </tr>
+          <tr class="row-4">
+            <td class="column-1">3</td>
+            <td class="column-2">Julien</td>
+            <td class="column-3">Martin</td>
+            <td class="column-4">Lyon</td>
+          </tr>
+          <tr class="row-5">
+            <td class="column-1">4</td>
+            <td class="column-2">David</td>
+            <td class="column-3">Bernard</td>
+            <td class="column-4">Marseille</td>
+          </tr>
+          <tr class="row-6">
+            <td class="column-1">5</td>
+            <td class="column-2">Marie</td>
+            <td class="column-3">Leroy</td>
+            <td class="column-4">Grenoble</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Il y a des avantages et des inconvénient à l’utiliser. Pour en savoir
+        plus sur le sujet il est recommandé de lire l’article avantage et
+        inconvénient du sélecteur étoile.
+      </p>
+      <h2>Cours avancé : ordre des commandes du SELECT</h2>
+      <p>
+        Cette commande SQL est relativement commune car il est très fréquent de
+        devoir lire les données issues d’une base de données. Il existe
+        plusieurs commandes qui permettent de mieux gérer les données que l’ont
+        souhaite lire. Voici un petit aperçu des fonctionnalités possibles qui
+        sont abordées sur le reste du site: Joindre un autre tableau aux
+        résultats Filtrer pour ne sélectionner que certains enregistrements
+        Classer les résultats Grouper les résultats pour faire uniquement des
+        statistiques (note moyenne, prix le plus élevé …) Un requête SELECT peut
+        devenir assez longue. Juste à titre informatif, voici une requête SELECT
+        qui possède presque toutes les commandes possibles: SELECT * FROM table
+        WHERE condition GROUP BY expression HAVING condition { UNION | INTERSECT
+        | EXCEPT } ORDER BY expression LIMIT count OFFSET start A noter : cette
+        requête imaginaire sert principale d’aide-mémoire pour savoir dans quel
+        ordre sont utilisé chacun des commandes au sein d’une requête SELECT.
+      </p>
+
+      <h2 id="where">Les requête SQL WHERE</h2>
+      <p>
+        SQL WHERE La commande WHERE dans une requête SQL permet d’extraire les
+        lignes d’une base de données qui respectent une condition. Cela permet
+        d’obtenir uniquement les informations désirées. Syntaxe La commande
+        WHERE s’utilise en complément à une requête utilisant SELECT. La façon
+        la plus simple de l’utiliser est la suivante: SELECT nom_colonnes FROM
+        nom_table WHERE condition
+      </p>
+      <h2>Exemple</h2>
+      <p>
+        Imaginons une base de données appelée “client” qui contient le nom des
+        clients, le nombre de commandes qu’ils ont effectués et leur ville:
+      </p>
+      <!-- Tableau -->
+      <p>
+        Pour obtenir seulement la liste des clients qui habitent à Paris, il
+        faut effectuer la requête suivante: SELECT * FROM client WHERE ville =
+        'paris' Cette requête retourne le résultat suivant:
+      </p>
+      <!-- Tableau -->
+      <p>
+        Attention: dans notre cas tout est en minuscule donc il n’y a pas eu de
+        problème. Cependant, si un table est sensible à la casse, il faut faire
+        attention aux majuscules et minuscules.
+      </p>
+      <h2>Opérateurs de comparaisons</h2>
+
+      <p>
+        Il existe plusieurs opérateurs de comparaisons. La liste ci-jointe
+        présente quelques uns des opérateurs les plus couramment utilisés.
+      </p>
+      <!-- Tableau -->
+      <p>
+        Attention: il y a quelques opérateurs qui n’existe pas dans des vieilles
+        versions de système de gestion de bases de données (SGBD). De plus, il y
+        a de nouveaux opérateurs non indiqués ici qui sont disponibles avec
+        certains SGBD. N’hésitez pas à consulter la documentation de MySQL,
+        PostgreSQL ou autre pour voir ce qu’il vous est possible de faire.
+      </p>
+      <h2 id="groupby">Les requêtes SQL GROUP BY</h2>
+      <p>
+        SQL GROUP BY La commande GROUP BY est utilisée en SQL pour grouper
+        plusieurs résultats et utiliser une fonction de totaux sur un groupe de
+        résultat. Sur une table qui contient toutes les ventes d’un magasin, il
+        est par exemple possible de liste regrouper les ventes par clients
+        identiques et d’obtenir le coût total des achats pour chaque client.
+        Syntaxe d’utilisation de GROUP BY De façon générale, la commande GROUP
+        BY s’utilise de la façon suivante SELECT colonne1, fonction(colonne2)
+        FROM table GROUP BY colonne1 A noter : cette commande doit toujours
+        s’utiliser après la commande WHERE et avant la commande HAVING.
+      </p>
+      <h2>Exemple d’utilisation</h2>
+      <p>
+        Prenons en considération une table “achat” qui résume les ventes d’une
+        boutique:
+      </p>
+      <!-- tableau -->
+      <p>
+        Ce tableau contient une colonne qui sert d’identifiant pour chaque
+        ligne, une autre qui contient le nom du client, le coût de la vente et
+        la date d’achat. Pour obtenir le coût total de chaque client en
+        regroupant les commandes des mêmes clients, il faut utiliser la requête
+        suivante : SELECT client, SUM(tarif) FROM achat GROUP BY client La
+        fonction SUM() permet d’additionner la valeur de chaque tarif pour un
+        même client. Le résultat sera donc le suivant :
+      </p>
+      <!-- tableau -->
+      <p>
+        La manière simple de comprendre le GROUP BY c’est tout simplement
+        d’assimiler qu’il va éviter de présenter plusieurs fois les mêmes
+        lignes. C’est une méthode pour éviter les doublons. Juste à titre
+        informatif, voici ce qu’on obtient de la requête sans utiliser GROUP BY.
+        Requête : SELECT client, SUM(tarif) FROM achat Résultat :
+      </p>
+      <!-- tableau -->
+      <h2>Utilisation d’autres fonctions de statistiques</h2>
+      <p>
+        Il existe plusieurs fonctions qui peuvent être utilisées pour manipuler
+        plusieurs enregistrements, il s’agit des fonctions d’agrégations
+        statistiques, les principales sont les suivantes :<br />
+        AVG() pour calculer la moyenne d’un set de valeur. Permet de connaître
+        le prix du panier moyen pour de chaque client<br />
+        COUNT() pour compter le nombre de lignes concernées. Permet de savoir
+        combien d’achats a été effectué par chaque client<br />
+        MAX() pour récupérer la plus haute valeur. Pratique pour savoir l’achat
+        le plus cher<br />
+        MIN() pour récupérer la plus petite valeur. Utile par exemple pour
+        connaître la date du premier achat d’un client<br />
+        SUM() pour calculer la somme de plusieurs lignes. Permet par exemple de
+        connaître le total de tous les achats d’un client Ces petites fonctions
+        se révèlent rapidement indispensable pour travailler sur des données.
+      </p>
+
+      <h2 id="orderby">Les requêtes SQL ORDER BY</h2>
+      <p>
+        SQL ORDER BY La commande ORDER BY permet de trier les lignes dans un
+        résultat d’une requête SQL. Il est possible de trier les données sur une
+        ou plusieurs colonnes, par ordre ascendant ou descendant. Syntaxe Une
+        requête où l’on souhaite filtrer l’ordre des résultats utilise la
+        commande ORDER BY de la sorte : SELECT colonne1, colonne2 FROM table
+        ORDER BY colonne1 Par défaut les résultats sont classés par ordre
+        ascendant, toutefois il est possible d’inverser l’ordre en utilisant le
+        suffixe DESC après le nom de la colonne. Par ailleurs, il est possible
+        de trier sur plusieurs colonnes en les séparant par une virgule. Une
+        requête plus élaborée ressemblerait à cela : SELECT colonne1, colonne2,
+        colonne3 FROM table ORDER BY colonne1 DESC, colonne2 ASC A noter : il
+        n’est pas obligé d’utiliser le suffixe “ASC” sachant que les résultats
+        sont toujours classés par ordre ascendant par défaut. Toutefois, c’est
+        plus pratique pour mieux s’y retrouver, surtout si on a oublié l’ordre
+        par défaut.
+      </p>
+      <h2>Exemple</h2>
+      <p>
+        Pour l’ensemble de nos exemples, nous allons prendre une base
+        “utilisateur” de test, qui contient les données suivantes :
+      </p>
+      <!-- tableau -->
+      <p>
+        Pour récupérer la liste de ces utilisateurs par ordre alphabétique du
+        nom de famille, il est possible d’utiliser la requête suivante : SELECT
+        * FROM utilisateur ORDER BY nom <br />Résultat :
+      </p>
+      <!-- tableau -->
+      <p>
+        En utilisant deux méthodes de tri, il est possible de retourner les
+        utilisateurs par ordre alphabétique ET pour ceux qui ont le même nom de
+        famille, les trier par ordre décroissant d’inscription. La requête
+        serait alors la suivante : SELECT * FROM utilisateur ORDER BY nom,
+        date_inscription DESC<br />
+        Résultat :
+      </p>
+      <!-- tableau -->
+
+      <h2 id="limit">Les requêtes SQL LIMIT</h2>
+      <p>
+        La clause LIMIT est à utiliser dans une requête SQL pour spécifier le
+        nombre maximum de résultats que l’ont souhaite obtenir. Cette clause est
+        souvent associé à un OFFSET, c’est-à-dire effectuer un décalage sur le
+        jeu de résultat. Ces 2 clauses permettent par exemple d’effectuer des
+        système de pagination (exemple : récupérer les 10 articles de la page
+        4). ATTENTION : selon le système de gestion de base de données, la
+        syntaxe ne sera pas pareil. Ce tutoriel va donc présenter la syntaxe
+        pour MySQL et pour PostgreSQL.
+      </p>
+      <h2>Syntaxe simple</h2>
+      <p>
+        La syntaxe commune aux principales système de gestion de bases de
+        données est la suivante : SELECT * FROM table LIMIT 10 Cette requête
+        permet de récupérer seulement les 10 premiers résultats d’une table.
+        Bien entendu, si la table contient moins de 10 résultats, alors la
+        requête retournera toutes les lignes. Bon à savoir : la bonne pratique
+        lorsque l’ont utilise LIMIT consiste à utiliser également la clause
+        ORDER BY pour s’assurer que quoi qu’il en soit ce sont toujours les
+        bonnes données qui sont présentées. En effet, si le système de tri est
+        non spécifié, alors il est en principe inconnu et les résultats peuvent
+        être imprévisible.
+      </p>
+      <h2>Limit et Offset avec PostgreSQL</h2>
+      <p>
+        L’offset est une méthode simple de décaler les lignes à obtenir. La
+        syntaxe pour utiliser une limite et un offset est la suivante : SELECT *
+        FROM table LIMIT 10 OFFSET 5 Cette requête permet de récupérer les
+        résultats 6 à 15 (car l’OFFSET commence toujours à 0). A titre
+        d’exemple, pour récupérer les résultats 16 à 25 il faudrait donc
+        utiliser: LIMIT 10 OFFSET 15 A noter : Utiliser OFFSET 0 reviens au même
+        que d’omettre l’OFFSET.
+      </p>
+      <h2>Limit et Offset avec MySQL</h2>
+      <p>
+        La syntaxe avec MySQL est légèrement différente : SELECT * FROM table
+        LIMIT 5, 10; Cette requête retourne les enregistrements 6 à 15 d’une
+        table. Le premier nombre est l’OFFSET tandis que le suivant est la
+        limite. Bon à savoir : pour une bonne compatibilité, MySQL accepte
+        également la syntaxe LIMIT nombre OFFSET nombre. En conséquent, dans la
+        conception d’une application utilisant MySQL il est préférable
+        d’utiliser cette syntaxe car c’est potentiellement plus facile de migrer
+        vers un autre système de gestion de base de données sans avoir à
+        ré-écrire toutes les requêtes.
+      </p>
+      <h2>Performance</h2>
+      <p>
+        Ce dernier chapitre est destiné à un public averti. Il n’est pas
+        nécessaire de le comprendre entièrement, mais simplement d’avoir compris
+        les grandes lignes. Certains développeur pensent à tort que
+        l’utilisation de LIMIT permet de réduire le temps d’exécution d’une
+        requête. Or, le temps d’exécution est sensiblement le même car la
+        requête va permettre de récupérer toutes les lignes (donc temps
+        d’exécution identique) PUIS seulement les résultats définit par LIMIT et
+        OFFSET seront retournés. Au mieux, utiliser LIMIT permet de réduire le
+        temps d’affichage car il y a moins de lignes à afficher.
+      </p>
+      <h2 id="jointures">Les jointures SQL</h2>
+      <p>
+        Jointure SQL Les jointures en SQL permettent d’associer plusieurs tables
+        dans une même requête. Cela permet d’exploiter la puissance des bases de
+        données relationnelles pour obtenir des résultats qui combinent les
+        données de plusieurs tables de manière efficace.
+      </p>
+      <h2>Exemple</h2>
+
+      <p>
+        En général, les jointures consistent à associer des lignes de 2 tables
+        en associant l’égalité des valeurs d’une colonne d’une première table
+        par rapport à la valeur d’une colonne d’une seconde table. Imaginons
+        qu’une base de 2 données possède une table “utilisateur” et une autre
+        table “adresse” qui contient les adresses de ces utilisateurs. Avec une
+        jointure, il est possible d’obtenir les données de l’utilisateur et de
+        son adresse en une seule requête. On peut aussi imaginer qu’un site web
+        possède une table pour les articles (titre, contenu, date de publication
+        …) et une autre pour les rédacteurs (nom, date d’inscription, date de
+        naissance …). Avec une jointure il est possible d’effectuer une seule
+        recherche pour afficher un article et le nom du rédacteur. Cela évite
+        d’avoir à afficher le nom du rédacteur dans la table “article”. Il y a
+        d’autres cas de jointures, incluant des jointures sur la même table ou
+        des jointure d’inégalité. Ces cas étant assez particulier et pas si
+        simple à comprendre, ils ne seront pas élaboré sur cette page.
+      </p>
+      <h2>Types de jointures</h2>
+
+      <p>
+        Il y a plusieurs méthodes pour associer 2 tables ensemble. Voici la
+        liste des différentes techniques qui sont utilisées :<br />
+        INNER JOIN : jointure interne pour retourner les enregistrements quand
+        la condition est vrai dans les 2 tables. C’est l’une des jointures les
+        plus communes. CROSS JOIN : jointure croisée permettant de faire le
+        produit cartésien de 2 tables. En d’autres mots, permet de joindre
+        chaque lignes d’une table avec chaque lignes d’une seconde table.
+        Attention, le nombre de résultats est en général très élevé. LEFT JOIN
+        (ou LEFT OUTER JOIN) : jointure externe pour retourner tous les
+        enregistrements de la table de gauche (LEFT = gauche) même si la
+        condition n’est pas vérifié dans l’autre table. RIGHT JOIN (ou RIGHT
+        OUTER JOIN) : jointure externe pour retourner tous les enregistrements
+        de la table de droite (RIGHT = droite) même si la condition n’est pas
+        vérifié dans l’autre table. FULL JOIN (ou FULL OUTER JOIN) : jointure
+        externe pour retourner les résultats quand la condition est vrai dans au
+        moins une des 2 tables. SELF JOIN : permet d’effectuer une jointure
+        d’une table avec elle-même comme si c’était une autre table. NATURAL
+        JOIN : jointure naturelle entre 2 tables s’il y a au moins une colonne
+        qui porte le même nom entre les 2 tables SQL UNION JOIN : jointure
+        d’union
+      </p>
+
+      <h2>Exemples de jointures</h2>
+      <p></p>
+      <h2>INNER JOIN</h2>
+      <img src="" alt="" />
+      <p>SELECT * FROM A INNER JOIN B ON A.key = B.key</p>
+      <h2>LEFT JOINT</h2>
+      <img src="" alt="" />
+      <p>SELECT * FROM A LEFT JOIN B ON A.key = B.key</p>
+      <h2>LEFT JOIN (sans l’intersection de B)</h2>
+      <img src="" alt="" />
+      <p>SELECT * FROM A LEFT JOIN B ON A.key = B.key WHERE B.key IS NULL</p>
+      <h2>RIGHT JOIN</h2>
+      <img src="" alt="" />
+      <p>SELECT * FROM A RIGHT JOIN B ON A.key = B.key</p>
+      <h2>RIGHT JOIN (sans l’intersection de A)</h2>
+      <img src="" alt="" />
+
+      <p>SELECT * FROM A RIGHT JOIN B ON A.key = B.key WHERE B.key IS NULL</p>
+      <h2>FULL JOIN</h2>
+      <img src="" alt="" />
+      <p>SELECT * FROM A FULL JOIN B ON A.key = B.key</p>
+      <h2>FULL JOIN (sans intersection)</h2>
+      <img src="" alt="" />
+      <p>
+        SELECT * FROM A FULL JOIN B ON A.key = B.key WHERE A.key IS NULL OR
+        B.key IS NULL
+      </p>
+    </div>
+  </body>
+</html>
