@@ -1,3 +1,5 @@
+/* Général */
+
 @font-face {
   font-family: "police_title";
   src: url(./polices/ReferenzGrotesk-Black.otf);
@@ -10,692 +12,81 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #7fc682;
-  width: 100vw;
+  background: white;
 }
 
 a {
   text-decoration: none;
 }
 
-.h1_index1 {
-  margin-left: 1rem;
-  margin-top: 1rem;
-  font-family: "police_title";
+/* index  */
+  width: 50rem;
 }
 
-.h1_index_others {
-  text-align: center;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  font-family: "police_title";
-}
-h2 {
-  margin-top: 2rem;
-  font-family: "police_para";
-  font-size: 2rem;
-  text-align: center;
-}
+/* Pages principales */
 
-.logo_dolphin_index {
-  width: 100vw;
+#grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 25vh 10vh auto auto auto 10vh;
+  grid-template-areas:
+    "titre dauphin header"
+    " nav nav nav"
+    ". texte ."
+    ". texte2 ."
+    ". texte3 ."
+    "footer footer footer";
 }
-
-.logo_dolphin {
-  width: 100vw;
-}
-
-.index1_button {
-  border-radius: 1rem;
-  width: 60vw;
-  padding: 1rem;
-  margin-top: 5rem;
-  background-color: black;
-  font-family: "police_para";
-  color: white;
-  font-size: 25px;
-}
-
-.main2 {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.nav1 {
-  width: 90vw;
-  display: flex;
-  text-align: center;
-  justify-content: space-between;
-  text-decoration: none;
-  list-style: none;
-  margin-bottom: -1.5rem;
-  z-index: 5;
-}
-
-.li1 {
-  background-color: #e5e4e2;
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: 9px 12px 8px -3px rgba(160, 159, 158, 0.47);
-}
-
-svg {
-  height: 40px;
-  width: 40px;
-}
-li:hover {
-  background: white;
-  fill: #80397d;
-  box-shadow: none;
-  transform: translateX(6px) translateY(5px);
-  /* transform: translateX(9px) translateY(8px); */
-}
-
-.white_block {
-  background-color: white;
-  width: 100vw;
-  font-family: "police_para";
-  text-align: left;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  /* height: 49vh; */
-}
-.white_block_index2 {
-  background-color: white;
-  width: 100vw;
-  font-family: "police_para";
-  text-align: left;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  /* height: 100vh; */
-}
-.white_block_index5 {
-  background-color: white;
-  width: 100vw;
-  font-family: "police_para";
-  text-align: left;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  /* height: 81.9vh; */
-}
-
-p {
-  padding: 2rem;
-  padding-top: 3rem;
-  background-color: white;
-}
-
-.p_index3 {
-  margin-bottom: 1.25rem;
-}
-
-.index6_button {
-  border-radius: 1rem;
-  width: 55vw;
-  padding: 1rem;
-  background-color: black;
-  font-family: "police_para";
-  color: white;
-  font-size: 25px;
-  margin-bottom: 8.3rem;
-}
-
-/* FORM INDEX6 */
-
-/* PAGE ANNEXE */
 
 header {
-  background-color: #7fc682;
-}
-.logo_header {
-  width: 24vw;
-  /* padding-bottom: 1rem; */
-}
-.p_2 {
-  padding-top: 5rem;
+  display: flex;
+  /* grid-area: titre / dauphin / header; */
+  grid-area: 1 / 1/2 /4;
+  background-color: #08aeea;
+  background-image: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
 }
 
-/* MENU BURGER */
-
-a {
-  color: #000;
-}
-
-/* header */
-
-.header {
-  background-color: #7fc682;
-  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  z-index: 3;
-}
-
-.header ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-  background-color: #7fc682;
-}
-
-.header li a {
-  display: block;
-  padding: 20px 20px;
-  border-right: 1px solid #7fc682;
-  text-decoration: none;
-}
-
-.header li a:hover,
-.header .menu-btn:hover {
-  background-color: #f4f4f4;
-}
-
-.header .logo {
-  display: block;
-  float: left;
-  text-decoration: none;
-}
-
-/* menu */
-
-.header .menu {
-  clear: both;
-  max-height: 0;
-  transition: max-height 0.2s ease-out;
-}
-
-/* menu icon */
-
-.header .menu-icon {
-  cursor: pointer;
-  display: inline-block;
-  float: right;
-  padding: 28px 20px;
-  position: relative;
-  user-select: none;
-}
-
-.header .menu-icon .navicon {
-  background: #333;
-  display: block;
-  height: 2px;
-  position: relative;
-  transition: background 0.2s ease-out;
-  width: 18px;
-}
-
-.header .menu-icon .navicon:before,
-.header .menu-icon .navicon:after {
-  background: #333;
-  content: "";
-  display: block;
-  height: 100%;
-  position: absolute;
-  transition: all 0.2s ease-out;
-  width: 100%;
-}
-
-.header .menu-icon .navicon:before {
-  top: 5px;
-}
-
-.header .menu-icon .navicon:after {
-  top: -5px;
-}
-
-/* menu btn */
-
-.header .menu-btn {
-  display: none;
-}
-
-.header .menu-btn:checked ~ .menu {
-  max-height: 350px;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon {
-  background: transparent;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
-  transform: rotate(-45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
-  transform: rotate(45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-  top: 0;
-}
-
-/* 48em = 768px */
-
-@media (min-width: 48em) {
-  .header li {
-    float: left;
-  }
-  .header li a {
-    padding: 20px 30px;
-  }
-  .header .menu {
-    clear: none;
-    float: right;
-    max-height: none;
-  }
-  .header .menu-icon {
-    display: none;
-  }
-}
-@media (max-width: 800px) {
-  .main1 {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-@media (min-width: 800px) {
-  /* .main1{
-    display: flex;
-  } */
-
-  .h1_index1 {
-    margin-bottom: 10rem;
-  }
-
-  .logo_dolphin_index {
-    width: 32.5vw;
-  }
-  .index1_button {
-    width: 15vw;
-    margin-left: 40rem;
-  }
-
-  .main2 {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo_dolphin {
-    width: 30vw;
-    margin-top: -10rem;
-  }
-
-  .p_index3 {
-    margin-bottom: 8.8rem;
-  }
-
-  .logo_dolphin_index {
-    float: right;
-  }
-
-  .h1_index_others {
-    margin-left: 3rem;
-    font-family: "police_title";
-    text-align: unset;
-  }
-  .body_bis {
-    background-color: white;
-  }
-
-  .nav1 {
-    width: 80vw;
-  }
-
-  svg {
-    height: 60px;
-    width: 60px;
-  }
-
-  .white_block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    /* margin: 0 auto; */
-  }
-
-  h2 {
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  p {
-    margin-top: 2rem;
-    width: 50vw;
-    text-align: left;
-  }
-
-  .logo_header {
-    width: 10vw;
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-  }
-  .index6_button {
-    width: 15vw;
-  }
-}
-
-/* Tableau */
-.requestpage,
-tt,
-table,
-tbody,
-thead,
-tr,
-th,
-td {
-  border: 1px solid #000;
-  border-bottom-color: currentcolor;
-  border-collapse: separate;
-  border-spacing: 1px;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  vertical-align: baseline;
-  margin-top: 1rem;
-}
-
-.row-1 {
-  background-color: rgb(221, 218, 218);
-}
-
-form {
-  margin-left: auto;
-  margin-right: auto;
-  /* margin: 0 auto; */
+#dauph {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 800px;
-  height: 450px;
-  padding: 1rem;
-  -moz-border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  border-radius: 1rem;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  overflow: hidden;
+  grid-area: dauphin;
+  width: 33vw;
+  height: 25vh;
+}
+.logo_dolphin {
+  height: 20vh;
+  align-self: flex-end;
+  justify-self: center;
+}
+.informateur {
+  display: flex;
+  justify-content: flex-start;
+  width: 33vw;
+  height: 25vh;
 }
 
-textarea {
-  background: rgba(0, 0, 0, 0.4);
-  width: 500px;
-  height: 110px;
-  border: none;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  display: block;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 18px;
-  color: #fff;
-  padding-left: 45px;
-  padding-right: 20px;
-  padding-top: 12px;
-  margin-bottom: 20px;
-  overflow: hidden;
+h1 {
+  margin-top: 2rem;
+  margin-left: 2rem;
 }
 
-select {
-  width: 960px;
-  height: 48px;
-  line-height: 1.5;
-  font-size: 1.4em;
-  border: none;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -mox-border-radius: 10px;
-  color: #fff;
-  display: block;
-  background: transparent;
-  background-color: rgba(0, 0, 0, 0.4);
-  margin-bottom: 20px;
-  display: block;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 18px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+p:nth-of-type(1) {
+  grid-area: texte;
+}
+p:nth-of-type(2) {
+  grid-area: texte2;
 }
 
-.nameinput,
-.emailinput {
-  width: 894px;
-  height: 48px;
-  border: none;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  display: block;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 18px;
-  color: #fff;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-bottom: 20px;
+p:nth-of-type(3) {
+  grid-area: texte3;
 }
 
-input[type="submit"] {
-  cursor: pointer;
-}
-
-input.nameinput {
-  background: rgba(0, 0, 0, 0.4);
-  padding-left: 45px;
-}
-
-input.emailinput {
-  background: rgba(0, 0, 0, 0.4);
-  padding-left: 45px;
-}
-
-input.message {
-  background: rgba(0, 0, 0, 0.4);
-  padding-left: 45px;
-}
-
-select.indent {
-  padding-left: 45px;
-  cursor: pointer;
-}
-
-::-webkit-input-placeholder {
-  color: #fff;
-}
-
-:-moz-placeholder {
-  color: #fff;
-}
-
-::-moz-placeholder {
-  color: #fff;
-}
-
-:-ms-input-placeholder {
-  color: #fff;
-}
-
-input:focus,
-textarea:focus {
-  background-color: rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5);
-  -webkit-box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5);
-  overflow: hidden;
-}
-
-.btn {
-  border: none;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 18px;
-  width: 200px;
-  height: 48px;
-  color: #000;
-  background: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 700;
-  position: relative;
-  outline: none;
-  box-shadow: 0 6px #cecece;
-  border-radius: 5px;
-  float: right;
-  margin-right: 6px;
-}
-
-.btn:hover {
-  background: #fff;
-  outline: none;
-  box-shadow: 0 4px #cecece;
-  top: 2px;
-}
-
-.btn:active {
-  background: #fff;
-  outline: none;
-  box-shadow: 0 0 #cecece;
-  top: 6px;
-}
-
-.flat {
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  outline: none;
-  position: relative;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.flat:before {
-  position: absolute;
-  height: 100%;
-  left: 0;
-  top: 0;
-  line-height: 3;
-  font-size: 140%;
-  width: 60px;
-}
-
-.flat {
-  width: 960px !important;
-  height: 48px;
-  overflow: hidden;
-  margin-bottom: 20px;
-  background: url(http://www.jordancundiff.com/wp-content/uploads/2014/03/icon-dropdown.png)
-    no-repeat right;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 2000px) {
-  form {
-    width: 736px !important;
-  }
-  #wpcf7-f156-p143-o1\20
-    formwrap
-    > form
-    > p
-    > span.wpcf7-form-control-wrap.Subject.flat
-    > select,
-  #wpcf7-f156-p143-o1\20
-    formwrap
-    > form
-    > p
-    > span.wpcf7-form-control-wrap.Subject.flat {
-    width: 731px !important;
-  }
-  .nameinput,
-  .emailinput,
-  #wpcf7-f156-p143-o1\20
-    formwrap
-    > form
-    > p
-    > span.wpcf7-form-control-wrap.Message
-    > textarea {
-    width: 666px !important;
-  }
-}
-
-@media only screen and (max-width: 804px) {
-  form {
-    width: 450px !important;
-  }
-  #wpcf7-f156-p143-o1\20
-    formwrap
-    > form
-    > p
-    > span.wpcf7-form-control-wrap.Subject.flat
-    > select,
-  #wpcf7-f156-p143-o1\20
-    formwrap
-    > form
-    > p
-    > span.wpcf7-form-control-wrap.Subject.flat {
-    width: 445px !important;
-  }
-  .nameinput,
-  .emailinput,
-  #wpcf7-f156-p143-o1\20
-    formwrap
-    > form
-    > p
-    > span.wpcf7-form-control-wrap.Message
-    > textarea {
-    width: 380px !important;
-  }
-}
-
-@media only screen and (max-width: 517px) {
-  form {
-    width: 295px !important;
-  }
-  #wpcf7-f156-p143-o1\20
-    formwrap
-    > form
-    > p
-    > span.wpcf7-form-control-wrap.Subject.flat
-    > select,
-  #wpcf7-f156-p143-o1\20
-    formwrap
-    > form
-    > p
-    > span.wpcf7-form-control-wrap.Subject.flat {
-    width: 290px !important;
-  }
-  .nameinput,
-  .emailinput,
-  #wpcf7-f156-p143-o1\20
-    formwrap
-    > form
-    > p
-    > span.wpcf7-form-control-wrap.Message
-    > textarea {
-    width: 225px !important;
-  }
-  .btn {
-    width: 110px;
-  }
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: flex-end;
 }
