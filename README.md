@@ -2,7 +2,18 @@
 
 Project WEB page about sql request
 
+## Tutor's Request
 
+**Responsive** Web site
+
+*All requests below:*
+
+●  SELECT
+●  WHERE
+●  GROUP BY
+●  ORDER BY
+●  LIMIT
+●  JOINS 
 
 ## Contributors
 
